@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <!-- Logo Section -->
+            <div class="logo">
+                <img src="img/Logo.png" alt="Logo">
+            </div>
+            <!-- Header Text Section -->
+            <div class="header-text">
+                <h1>Weather Matters,<br> We’ve Got the Details</h1>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Section -->
+    <div class="main-content">
+       <!-- Left Panel -->
+       <div class="left-panel">
+        <div class="time-date">
+            <h1 id="time-date">10:05:00 PM</h1>
+            <p class="location">
+                <i class="bi bi-geo-alt-fill" style='color:#f31919'></i> <span id="location">Colombo</span>
+            </p>
+            <p class="day">Monday</p>
+            <p id="current-date" class="date">2 Sep 2024</p>
+        </div>
+        
+        
+        <div class="temperature">
+            <img id="condition-icon" src="" alt="Weather Condition Icon" class="condition-icon">
+            <h2 id="main-temp">29°C</h2>
+            <p id="condition" class="condition">Sunny</p>
+        </div>
+        </div>
+        
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <div class="input-section">
+                <input type="text" placeholder="Enter Location" id="location-input" class="location-input">
+                <button id="search-btn" class="search-btn">Search</button>
+            </div>
+            <div class="weather-details">
+                <p><i class="bi bi-thermometer-half"></i> <strong>TEMPERATURE</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="temperature">29°C</span></p>
+                <p><i class="bi bi-moisture"></i> <strong>HUMIDITY</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="humidity">70%</span></p>
+                <p><i class="bi bi-wind"></i> <strong>WIND SPEED</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="speed">17.6 Km/h</span></p>
+                
+                <p>
+                    <span class="icon-container">
+                        <i class="bi bi-map"></i>
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </span>
+                    <strong>&nbsp;REGION</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="region">Western</span>
+                </p>
+                <p><i class="bi bi-globe-central-south-asia"></i> <strong>COUNTRY</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="country">Sri Lanka</span></p>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

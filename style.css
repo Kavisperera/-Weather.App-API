@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1f26;
+    color: white;
+}
+
+/* Main container */
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Header Section */
+.header {
+    background-image: url('img/Header.img.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 230px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); 
+    z-index: 1;
+}
+
+
+.logo {
+    z-index: 2; 
+    margin-bottom: 20px; 
+    position: absolute;
+    top: 10px; 
+    left: 20px; 
+}
+
+.logo img {
+    width: 200px; 
+    height: auto;
+}
+
+.header-text {
+    z-index: 2;
+    color: white;
+    text-align: center;
+}
+
+.header-text h1 {
+    font-size: 4.5rem;
+    font-weight: bolder;
+    line-height: 1.5;
+}
+
+
+/* Main Content */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0 50px;
+}
+.condition-icon {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+/* Left Panel */
+.left-panel {
+    background-image: url('img/Left\ panel.imge.jpg'); 
+    background-color: rgba(0, 0, 0, 0.8);  /* Black color with 80% opacity */
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+    border-radius: 10px;
+    width: 35%;
+    color: white;
+    height: 70vh;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between; 
+}
+
+.time-date h1 {
+    font-size: 3.5rem; 
+    color:#009698; 
+    margin: 0; 
+}
+
+
+
+.location {
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-end; 
+    font-size: 1.6rem; 
+    color: #7fffd4; 
+}
+
+.location i {
+    margin-right: 8px; 
+    font-size: 1.5rem; 
+}
+
+.location span {
+    font-size: 1.6rem; 
+    font-weight: bold; 
+    color:#7fffd4; 
+}
+
+.day {
+    font-size: 3.2rem; 
+    font-weight: bold;
+    margin: 6px 0; 
+    color: #f26a26; 
+}
+
+.date {
+    font-size: 1.2rem; 
+    font-weight: bold;
+    text-align: center; 
+    margin: 2px 0; 
+    color:#00ffff ;
+}
+
+
+/* Temperature Styling */
+.temperature h2 {
+    font-size: 5rem;
+    color: #ffffff;
+    margin: 0;
+}
+
+.temperature .condition {
+    font-size: 2.2rem;
+    color: #7fffd4;
+    font-weight: bold;
+}
+
+
+/* Right Panel */
+.right-panel {
+    background-color: #1c1c1e; 
+    padding: 40px;
+    border-radius: 15px;
+    width: 65%;
+    color: white;
+    height: 70vh;
+}
+
+.input-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    
+}
+
+.location-input {
+    padding: 12px;
+    width: 80%;
+    border-radius: 5px;
+    border: none;
+    background-color: #2e2e2e;
+    color: white;
+}
+
+.search-btn {
+    padding: 12px 25px;
+    background-color: #f26a26;
+    width: 15%;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+.weather-details {
+    color: white;
+}
+
+.weather-details i {
+    margin-right: 8px; 
+    color: #ffffff; 
+}
+
+.weather-details p {
+    margin-bottom: 10px;
+    font-size: 2.0rem;
+}
+
+.weather-details strong {
+    color: white;
+}
+
+.icon-container {
+    position: relative;
+    display: inline-block;
+    width: 2rem; 
+    height: 2rem; 
+}
+
+.icon-container .bi-map {
+    font-size: 2rem; 
+}
+
+.icon-container .bi-geo-alt-fill{
+    position: absolute;
+    top: 5%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem; 
+    color: red; 
+}
