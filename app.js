@@ -1,27 +1,13 @@
-let localTimeInterval;  // Variable to store the interval ID for local time updates
+let localTimeInterval;  // local time updates
 
-// Function to display current time in the specified time zone
+// Display current time 
 function showTime(timezone) {
-    // Clear any existing  to stop local time updates
-    if (localTimeInterval) clearInterval(localTimeInterval);
+    if (localTimeInterval) clearInterval(localTimeInterval); 
 
-    // Set an to update time every second
     localTimeInterval = setInterval(() => {
         const time = new Date();
-        const timeOptions = {
-            timeZone: timezone,
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: true
-        };
-        const dateOptions = {
-            timeZone: timezone,
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        };
+        const timeOptions = { timeZone: timezone, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+        const dateOptions = { timeZone: timezone, weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
         const timeString = new Intl.DateTimeFormat([], timeOptions).format(time);
         const dateString = new Intl.DateTimeFormat([], dateOptions).format(time);
@@ -38,7 +24,7 @@ function showTime(timezone) {
 // Weather API key
 const apiKey = "992a3649a580464780e194614240601";
 
-// Update weather data
+// Update weather  according to on location
 function updateWeather(location) {
     fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`)
         .then(response => response.json())
@@ -53,7 +39,7 @@ function updateWeather(location) {
                 document.getElementById("region").innerHTML = loc.region;
                 document.getElementById("country").innerHTML = loc.country;
                 document.getElementById("condition-icon").src = `http:${current.condition.icon}`;
-                showTime(loc.tz_id);  
+                showTime(loc.tz_id); // Set the local time according to the timezone
                 document.getElementById("location").innerHTML = loc.name;
             } else {
                 console.log("Invalid data received");
@@ -62,13 +48,38 @@ function updateWeather(location) {
         .catch(error => console.log("Error:", error));
 }
 
-// Initialize weather and local time for default location 
-updateWeather("colombo");
+// Get current location and update weather
+function getLocationAndWeather() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const { latitude, longitude } = position.coords;
+                //  geocoding to get city name
+                fetch(`http://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${latitude},${longitude}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.length > 0) {
+                            const city = data[0].name;
+                            updateWeather(city);
+                        } else {
+                         
+                            document.getElementById("location").innerHTML = "City not found.";
+                        }
+                    })
+                    .catch(error => console.log("Error:", error));
+            },
+            () => {
+                console.log("Geolocation access.");
+                document.getElementById("location").innerHTML = "Location access.";
+            }
+        );
+    } else {
+        console.log("Geolocation not supported.");
+        document.getElementById("location").innerHTML = "Geolocation not supported.";
+    }
+}
 
-// Display local time when the page loads
-showTime(Intl.DateTimeFormat().resolvedOptions().timeZone);
-
-// Event listener for search button
+// Search button event listener
 document.getElementById("search-btn").addEventListener("click", () => {
     const searchVal = document.getElementById("location-input").value.trim();
     if (searchVal) {
@@ -76,3 +87,6 @@ document.getElementById("search-btn").addEventListener("click", () => {
         updateWeather(searchVal); 
     }
 });
+
+// Initialize weather and time on page load
+getLocationAndWeather(); 
