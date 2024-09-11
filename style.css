@@ -226,3 +226,14 @@ body {
     font-size: 1.2rem; 
     color: red; 
 }
+.footer-text h3 {
+    font-size: 1rem;
+    font-weight: bolder;
+    line-height: 1.5;
+    text-align: end;
+    white-space: normal;
+    height: 17vh;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-end; 
+}
